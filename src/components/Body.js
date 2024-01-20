@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   //local State Variable-super powerful variable
@@ -17,18 +18,26 @@ const Body = () => {
 
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      // "https://corsproxy.io/?https://www.swiggy.com/mapi/homepage/getCards?lat=28.6190347&lng=77.0640016"
+      "https://www.swiggy.com/mapi/homepage/getCards?lat=28.6190347&lng=77.0640016"
     );
     const json = data.json();
-    console.log(json);
+
     //optional chaining
     setlistOfRestaurant(
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurant(
-      json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.cards[3]?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const onlineStatus = useOnlineStatus();
+
+  if (onlineStatus === false)
+    return (
+      <h1>Looks like you are offline.Please check your internet connection</h1>
+    );
 
   // //conditional rendering
   // if(listOfRestaurants?.length===0){
