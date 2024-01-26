@@ -1,7 +1,9 @@
 {
   "devDependencies": {
     "parcel": "^2.9.1",
-    "process": "^0.11.10"
+    "postcss": "^8.4.33",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.1"
   },
   "scripts": {
     "start": "parcel index.html",
