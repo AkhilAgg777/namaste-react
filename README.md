@@ -17,11 +17,11 @@ import component from "path";
 
 -Named export/import
 
+<br>
+After Episode 10
+<br>
+![image](https://github.com/AkhilAgg777/namaste-react/assets/38729013/65ce973c-d075-4286-947e-4e82772f96fc)
+<br>
 
-export const component;
-import {Component} from "path";
 
 
-# 2 types of routing in web apps
--client side routing
--server side routing
