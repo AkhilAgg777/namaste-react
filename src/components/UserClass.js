@@ -22,20 +22,20 @@ class UserClass extends React.Component {
     this.setState({
       userInfo: json,
     });
-    console.log(json);
+    //console.log(json);
   }
 
   componentDidUpdate() {
-    console.log("Component Did Update");
+    //console.log("Component Did Update");
   }
 
   componentWillUnmount() {
-    console.log("Component will unmount");
+   // console.log("Component will unmount");
   }
   render() {
     //const { name, location } = this.props;
 
-    console.log(this.props.name + "Child Render");
+    //console.log(this.props.name + "Child Render");
 
     const { name, location, avatar_url } = this.state.userInfo;
     return (
